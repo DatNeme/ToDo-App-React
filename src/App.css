@@ -35,6 +35,7 @@
 
 .fondoTareas .textoTareas{
     flex: 1;
+    word-break: break-word;
 }
 
 .fondoTareas .hecho .textoTareas{

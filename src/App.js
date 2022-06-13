@@ -63,7 +63,7 @@ function App() {
   return (
     <>
       <div className="body">
-        <div className="container text-center">
+        <div className="text-center">
           <Header></Header>
 
           {/* Actualizar Tareas */}
