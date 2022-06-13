@@ -1,10 +1,10 @@
 import './App.css';
-import ToDoList from './components/ToDoList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import ToDoList from './components/ToDoList';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Edit from '@mui/icons-material/Edit';
+import DeleteForever from '@mui/icons-material/DeleteForever';
 
 function App() {
 // Estado de las tareas
@@ -51,25 +51,48 @@ const actCancel = () =>{
 
 
   return (
-    <>
-
+  <>
+  <div className='body'>
+    <ToDoList></ToDoList>
     <div className="container text-center">
       {/* Tareas */}
 
       {ToDo && ToDo.length ? '' : 'No hay tareas pendientes'}
 
       {ToDo && ToDo
+      .sort((a, b)=> a.id > b.id ? 1 : -1)
       .map ((tarea, index) => {
         return(
           <React.Fragment key={tarea.id}>
-            <span className='textoTarea'>{index + 1}</span>
-            <span className='textoTarea'>{tarea.title}</span>
+
+          <div className='col fondoTareas'>
+
+            <div className={tarea.status ? 'hecho' : ''}>
+              <span className='numeroTareas'>{index + 1}</span>
+              <span className='textoTareas'>{tarea.title}</span>
+            </div>
+
+            <div className='iconsCont'>
+              <span title='Completado / Sin completar'>
+                <CheckCircleIcon></CheckCircleIcon>
+              </span>
+              <span title='Editar tarea'>
+                <Edit></Edit>
+              </span>
+              <span title='Eliminar tarea'>
+                <DeleteForever></DeleteForever>
+              </span>
+            </div>
+
+          </div>
+
+            
           </React.Fragment>
         )
       })}
     </div>
-
-    </>
+  </div>
+  </>
   );
 }
 
