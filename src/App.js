@@ -11,57 +11,53 @@ function App() {
   const [ToDo, setToDo] = useState([]);
 
   // Estado temporal
-  const [nuevaTarea, setNuevaTarea] = useState("");
-  const [tareaUpdate, setTareaUpdate] = useState("");
+  const [nuevaTarea, setNuevaTarea] = useState('');
+  const [tareaUpdate, setTareaUpdate] = useState('');
 
   //Añadir tarea
   const crearTarea = () => {
     if (nuevaTarea) {
       let num = ToDo.length + 1;
-      let nuevoObjeto = { id: num, title: nuevaTarea, status: false };
-      setToDo([...ToDo, nuevoObjeto]);
-      setNuevaTarea("");
+      setToDo([
+        ...ToDo, 
+        { id: num, title: nuevaTarea, status: false }
+      ])
+      setNuevaTarea('');
     }
   };
 
   //Eliminar tarea
   const borrarTarea = (id) => {
-    let tareaMod = ToDo.filter((tarea) => tarea.id !== id);
-    setToDo(tareaMod);
+    setToDo(ToDo.filter(tarea => tarea.id !== id))
   };
 
   //Tarea completada
   const tareaHecha = (id) => {
-    let nuevaTarea = ToDo.map((tarea) => {
-      if (tarea.id === id) {
-        return { ...tarea, status: !tarea.status };
-      }
-      return tarea;
-    });
-    setToDo(nuevaTarea);
+    setToDo(ToDo.map(
+      tarea => tarea.id === id 
+      ? ({ ...tarea, status: !tarea.status }) 
+      : (tarea) 
+    ))
   };
 
   //Cambiar tarea para actualizarla
   const actChange = (e) => {
-    let nuevoObjeto = {
-      id: tareaUpdate.id,
-      title: e.target.value,
-      status: tareaUpdate.status ? true : false,
-    };
-    setTareaUpdate(nuevoObjeto);
+    setTareaUpdate({...tareaUpdate, title: e.target.value})
   };
 
   //Actualizar tarea
   const actTarea = () => {
-    let filtrarInfo = [...ToDo].filter((tarea) => tarea.id !== tareaUpdate.id);
-    let actObjeto = [...filtrarInfo, tareaUpdate];
-    setToDo(actObjeto);
-    setTareaUpdate("");
+    let borrarInfo = [...ToDo].filter(tarea => tarea.id !== tareaUpdate.id)
+    setToDo([
+      ...borrarInfo, 
+      tareaUpdate
+    ])
+    setTareaUpdate('');
   };
 
   //Cancelar actualizacion de la tarea
   const actCancel = () => {
-    setTareaUpdate("");
+    setTareaUpdate('');
   };
 
   return (
@@ -89,7 +85,7 @@ function App() {
 
           {/* Lista de Tareas */}
 
-          {ToDo && ToDo.length ? "" : "No hay tareas pendientes"}
+          {ToDo && ToDo.length ? '' : "No hay tareas pendientes"}
 
           <ToDoList
             ToDo={ToDo}
