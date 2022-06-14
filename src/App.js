@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import NuevaTarea from "./components/NuevaTarea";
 import TareaUpdate from "./components/TareaUpdate";
@@ -13,6 +13,21 @@ function App() {
   // Estado temporal
   const [nuevaTarea, setNuevaTarea] = useState('');
   const [tareaUpdate, setTareaUpdate] = useState('');
+  
+  useEffect(() => {
+    const accStorage = localStorage.getItem("ToDo")
+    const storageData = JSON.parse(accStorage)
+
+    if(storageData) {
+      setToDo(storageData)
+    }
+  }, []);
+
+  useEffect(() =>{
+    const storage = JSON.stringify(ToDo)
+    localStorage.setItem("ToDo", storage)
+  }, [ToDo]);
+
 
   //Añadir tarea
   const crearTarea = () => {
@@ -63,7 +78,7 @@ function App() {
   return (
     <>
       <div className="body">
-        <div className="text-center">
+        <div className="text-center container">
           <Header></Header>
 
           {/* Actualizar Tareas */}

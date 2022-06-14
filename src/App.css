@@ -1,86 +1,88 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 .body {
-    padding: 5px;
-    min-height: 100vh;
-    background: fixed #635666;    
+  padding: 5px;
+  min-height: 100vh;
+  min-width: 90vw;
+  background: #635666;
 }
 
 .header {
-    height: 15vh;
-    width: 100%;
-    background-color: #D3EBCD;
-    padding-top: 1.5vh;
-    margin-bottom: 5vh;
+  height: 15vh;
+  width: 100%;
+  background-color: #d3ebcd;
+  padding-top: 1.5vh;
+  margin-bottom: 5vh;
+  border-radius: 8px;
 }
 
-.fondoTareas{
-    background-color: #839AA8;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    padding: 10px 140px 10px 15px;
-    text-align: left;
-    font-size: 22px;
-    position: relative;
+.fondoTareas {
+  background-color: #839aa8;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 10px 140px 10px 15px;
+  text-align: left;
+  font-size: 22px;
+  position: relative;
 }
 
-.fondoTareas div{
-    display: flex;
-    align-items:center;
+.fondoTareas div {
+  display: flex;
+  align-items: center;
 }
 
-.fondoTareas .textoTareas{
-    flex: 1;
-    word-break: break-word;
+.fondoTareas .textoTareas {
+  flex: 1;
+  word-break: break-word;
 }
 
-.fondoTareas .hecho .textoTareas{
-    text-decoration: line-through;
-    opacity: 0.3;
+.fondoTareas .hecho .textoTareas {
+  text-decoration: line-through;
+  opacity: 0.3;
 }
 
-.numeroTareas{
-    color: #AEDBCE;
-    border: 2px solid #AEDBCE;
-    border-radius: 50%;
-    width: 26px;
-    height: 26px;
-    display: flex;
-    text-align: center;
-    font-size: 14px;
-    margin-right: 8px;
-    align-items: center;
-    justify-content: center;
+.numeroTareas {
+  color: #aedbce;
+  border: 2px solid #aedbce;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  margin-right: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
-.fondoTareas .iconsCont{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 15px;
-    width: auto;
-    display: inline-block;
+.fondoTareas .iconsCont {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  width: auto;
+  display: inline-block;
 }
 
-.fondoTareas .iconsCont span{
-    display: inline-block;
-    margin: 0px 10px 0px 10px;
-    cursor: pointer;
-    color: #AEDBCE;
+.fondoTareas .iconsCont span {
+  display: inline-block;
+  margin: 0px 10px 0 10px;
+  cursor: pointer;
+  color: #aedbce;
 }
 
-.fondoTareas .iconsCont span:hover{
-    color: #79DAE8;
+.fondoTareas .iconsCont span:hover {
+  color: #79dae8;
 }
 
-.mr-20{
-    margin-right: 20px;
+.mr-20 {
+  margin-right: 20px;
 }
 
-.row{
-    padding-bottom: 10px;
+.row {
+  padding-bottom: 10px;
 }
